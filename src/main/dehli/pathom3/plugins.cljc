@@ -42,7 +42,7 @@
   "This plugin allows you to specify a ::params-spec key on your defmutation.
   By specifying this, the mutation will only be invoked if the params fulfills
   the spec contract. Additionally, select-spec will be called on params so that
-  extra data won't be sent to the mutation.
+  extra data isn't sent to the mutation.
   "
   {::p.plugin/id `params-spec-plugin
    ::pcr/wrap-mutate
