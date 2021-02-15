@@ -1,4 +1,4 @@
-(ns dev.dehli.pathom3.plugins
+(ns dehli.pathom3.plugins
   (:require [clojure.spec.alpha :as s]
             [com.wsscode.pathom3.connect.indexes :as pci]
             [com.wsscode.pathom3.connect.runner :as pcr]
