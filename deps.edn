@@ -1,0 +1,11 @@
+{:paths ["src"]
+ :deps {com.wsscode/pathom3 {:git/url "https://github.com/wilkerlucio/pathom3"
+                             :sha "523dab6c4d9c9c9bc2df323a86b4f4e9833f66bb"}
+        metosin/spec-tools {:mvn/version "0.10.5"}
+        org.clojure/clojure {:mvn/version "1.10.2"}
+        org.clojure/clojurescript {:mvn/version "1.10.773"}}
+
+ :aliases
+ {:outdated
+  {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "antq.core"]}}}
