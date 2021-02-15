@@ -1,0 +1,1 @@
+{:lint-as {com.wsscode.pathom3.plugin/defplugin clojure.core/def}}
