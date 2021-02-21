@@ -50,8 +50,10 @@
      (fn [env {:keys [key params] :as ast}]
        (let [{::keys [params-spec]} (pci/mutation-config env key)]
          (when (and (some? params-spec) (not (s/valid? params-spec params)))
-           (throw (ex-info "Invalid params" params
-                           {:message (s/explain-str params-spec params)})))
+           (throw (ex-info "Invalid params"
+                           {:message (s/explain-str params-spec params)
+                            :params params})))
+
          (mutate env (cond-> ast
                        (some? params-spec)
                        (update :params #(st/select-spec params-spec %)))))))})

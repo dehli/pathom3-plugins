@@ -1,1 +1,2 @@
-{:lint-as {com.wsscode.pathom3.plugin/defplugin clojure.core/def}}
+{:lint-as {com.wsscode.pathom3.connect.operation/defmutation clojure.core/defn
+           com.wsscode.pathom3.plugin/defplugin clojure.core/def}}
