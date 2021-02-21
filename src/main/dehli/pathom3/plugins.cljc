@@ -35,7 +35,7 @@
              actual-id (get-in source [key id-remaps])]
 
          (cond-> (original env source ast)
-           (and id-remaps temp-id)
+           (and id-remaps temp-id actual-id)
            (update 1 assoc :app/id-remaps {temp-id actual-id})))))})
 
 (p.plugin/defplugin params-spec
