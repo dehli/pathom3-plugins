@@ -9,8 +9,7 @@
             [spec-tools.data-spec :as ds]))
 
 (pco/defmutation mutate [params]
-  {::plugins/params-spec (ds/spec ::spec {::id keyword?})
-   ::pco/output [::params]}
+  {::plugins/params-spec (ds/spec ::spec {::id keyword?})}
   {::params params})
 
 (defn- process [query]
@@ -24,5 +23,11 @@
       (t/is (= res {`mutate {::params {::id :a}}}))))
 
   (t/testing "fails when doesn't fulfill spec"
-    (let [res (process `[(mutate {::id "fail"})])]
-      (t/is (some? (get-in res [`mutate ::pcr/mutation-error]))))))
+    (let [res-with-error
+          (process `[(mutate {::id "fail"})])
+
+          res-without-error
+          (process `[{(mutate {::id "fail"}) [::params]}])]
+
+      (t/is (some? (get-in res-with-error [`mutate ::pcr/mutation-error])))
+      (t/is (some? (get-in res-without-error [`mutate ::pcr/mutation-error]))))))
