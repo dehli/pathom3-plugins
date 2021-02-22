@@ -3,7 +3,7 @@
             [com.wsscode.pathom3.connect.indexes :as pci]
             [com.wsscode.pathom3.connect.operation :as pco]
             [com.wsscode.pathom3.connect.runner :as pcr]
-            [com.wsscode.pathom3.interface.eql :as p.a.eql]
+            [com.wsscode.pathom3.interface.eql :as p.eql]
             [com.wsscode.pathom3.plugin :as p.plugin]
             [dehli.pathom3.plugins :as plugins]
             [spec-tools.data-spec :as ds]))
@@ -15,7 +15,7 @@
 (defn- process [query]
   (let [registry (-> (p.plugin/register [plugins/params-spec])
                      (pci/register [mutate]))]
-    (p.a.eql/process registry query)))
+    (p.eql/process registry query)))
 
 (t/deftest params-spec
   (t/testing "calls select-spec"
