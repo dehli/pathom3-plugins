@@ -23,11 +23,5 @@
       (t/is (= res {`mutate {::params {::id :a}}}))))
 
   (t/testing "fails when doesn't fulfill spec"
-    (let [res-with-error
-          (process `[(mutate {::id "fail"})])
-
-          res-without-error
-          (process `[{(mutate {::id "fail"}) [::params]}])]
-
-      (t/is (some? (get-in res-with-error [`mutate ::pcr/mutation-error])))
-      (t/is (some? (get-in res-without-error [`mutate ::pcr/mutation-error]))))))
+    (let [res (process `[(mutate {::id "fail"})])]
+      (t/is (some? (get-in res [`mutate ::pcr/mutation-error]))))))
