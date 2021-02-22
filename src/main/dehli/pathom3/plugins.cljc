@@ -26,8 +26,7 @@
 
   Note: If the client doesn't specify the key, :app/id-remaps won't be merged.
   "
-  {::p.plugin/id `id-remaps-plugin
-   ::pf.eql/wrap-map-select-entry
+  {::pf.eql/wrap-map-select-entry
    (fn [original]
      (fn [env source {:keys [key params] :as ast}]
        (let [{::keys [id-remaps]} (pci/mutation-config env key)
@@ -44,8 +43,7 @@
   the spec contract. Additionally, select-spec will be called on params so that
   extra data isn't sent to the mutation.
   "
-  {::p.plugin/id `params-spec-plugin
-   ::pcr/wrap-mutate
+  {::pcr/wrap-mutate
    (fn [mutate]
      (fn [env {:keys [key params] :as ast}]
        (let [{::keys [params-spec]} (pci/mutation-config env key)]
