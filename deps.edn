@@ -1,6 +1,6 @@
 {:paths ["src/main"]
  :deps {com.wsscode/pathom3 {:git/url "https://github.com/wilkerlucio/pathom3"
-                             :sha "49b9847f75d3a00e89cccd82c8d549d31e79cd7e"}
+                             :sha "c50d2e75dd084190c58c0e5a599c8e3f1a88d9ef"}
         metosin/spec-tools {:mvn/version "0.10.5"}
         org.clojure/clojure {:mvn/version "1.10.2"}
         org.clojure/clojurescript {:mvn/version "1.10.773"}}
