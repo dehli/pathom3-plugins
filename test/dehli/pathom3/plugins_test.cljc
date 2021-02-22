@@ -8,22 +8,21 @@
             [dehli.pathom3.plugins :as plugins]
             [spec-tools.data-spec :as ds]))
 
-(pco/defmutation mutate
-  [params]
-  {::plugins/params-spec (ds/spec ::spec {::id keyword?})}
+(pco/defmutation mutate [params]
+  {::plugins/params-spec (ds/spec ::spec {::id keyword?})
+   ::pco/output [::params]}
   {::params params})
 
-(def ^:private registry
-  (-> (p.plugin/register [plugins/params-spec])
-      (pci/register [mutate])))
+(defn- process [query]
+  (let [registry (-> (p.plugin/register [plugins/params-spec])
+                     (pci/register [mutate]))]
+    (p.a.eql/process registry query)))
 
 (t/deftest params-spec
   (t/testing "calls select-spec"
-    (let [res (p.a.eql/process registry
-                               `[(mutate {::id :a ::extra true})])]
-      (t/is (= res `{mutate {::params {::id :a}}}))))
+    (let [res (process `[(mutate {::id :a ::extra true})])]
+      (t/is (= res {`mutate {::params {::id :a}}}))))
 
   (t/testing "fails when doesn't fulfill spec"
-    (let [res (p.a.eql/process registry
-                               `[(mutate {::id "fail"})])]
+    (let [res (process `[(mutate {::id "fail"})])]
       (t/is (some? (get-in res [`mutate ::pcr/mutation-error]))))))
