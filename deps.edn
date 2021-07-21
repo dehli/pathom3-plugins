@@ -1,18 +1,18 @@
 {:paths ["src/main"]
- :deps {com.wsscode/pathom3 {:git/url "https://github.com/wilkerlucio/pathom3"
-                             :sha "c50d2e75dd084190c58c0e5a599c8e3f1a88d9ef"}
+ :deps {com.wsscode/pathom3 {:mvn/version "2021.07.19-alpha"}
         metosin/spec-tools {:mvn/version "0.10.5"}
-        org.clojure/clojure {:mvn/version "1.10.2"}
-        org.clojure/clojurescript {:mvn/version "1.10.773"}}
+        org.clojure/clojure {:mvn/version "1.10.3"}
+        org.clojure/clojurescript {:mvn/version "1.10.879"}}
 
  :aliases
  {:test
   {:extra-paths ["test"]
-   :extra-deps {com.cognitect/test-runner
+   :extra-deps {io.github.cognitect-labs/test-runner
                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                 :sha "209b64504cb3bd3b99ecfec7937b358a879f55c1"}}
-   :main-opts ["-m" "cognitect.test-runner"]}
+                 :sha "4e7e1c0dfd5291fa2134df052443dc29695d8cbe"}}
+   :main-opts ["-m" "cognitect.test-runner"]
+   :exec-fn cognitect.test-runner.api/test}
 
   :outdated
-  {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
+  {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
    :main-opts ["-m" "antq.core"]}}}

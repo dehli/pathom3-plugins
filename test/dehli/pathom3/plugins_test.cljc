@@ -2,7 +2,6 @@
   (:require [clojure.test :as t]
             [com.wsscode.pathom3.connect.indexes :as pci]
             [com.wsscode.pathom3.connect.operation :as pco]
-            [com.wsscode.pathom3.connect.runner :as pcr]
             [com.wsscode.pathom3.interface.eql :as p.eql]
             [com.wsscode.pathom3.plugin :as p.plugin]
             [dehli.pathom3.plugins :as plugins]
@@ -23,5 +22,6 @@
       (t/is (= res {`mutate {::params {::id :a}}}))))
 
   (t/testing "fails when doesn't fulfill spec"
-    (let [res (process `[(mutate {::id "fail"})])]
-      (t/is (some? (get-in res [`mutate ::pcr/mutation-error]))))))
+    (t/is (thrown-with-msg? Exception
+                            #"Invalid params"
+                            (process `[(mutate {::id "fail"})])))))
