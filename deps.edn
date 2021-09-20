@@ -1,5 +1,5 @@
 {:paths ["src/main"]
- :deps {com.wsscode/pathom3 {:mvn/version "2021.07.23-alpha"}
+ :deps {com.wsscode/pathom3 {:mvn/version "2021.08.14-alpha"}
         metosin/spec-tools {:mvn/version "0.10.5"}
         org.clojure/clojure {:mvn/version "1.10.3"}
         org.clojure/clojurescript {:mvn/version "1.10.879"}}
@@ -9,7 +9,7 @@
   {:extra-paths ["test"]
    :extra-deps {io.github.cognitect-labs/test-runner
                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                 :sha "4e7e1c0dfd5291fa2134df052443dc29695d8cbe"}}
+                 :sha "dd6da11611eeb87f08780a30ac8ea6012d4c05ce"}}
    :main-opts ["-m" "cognitect.test-runner"]
    :exec-fn cognitect.test-runner.api/test}
 
