@@ -29,7 +29,9 @@
   {::pf.eql/wrap-map-select-entry
    (fn [original]
      (fn [env source {:keys [key params] :as ast}]
-       (let [{::keys [id-remaps]} (pci/mutation-config env key)
+       (let [;; If it's not a symbol, then it's not an operation
+             {::keys [id-remaps]} (when (symbol? key)
+                                    (pci/operation-config env key))
              temp-id (get params id-remaps)
              actual-id (get-in source [key id-remaps])]
 
