@@ -47,13 +47,18 @@
   "
   {::pcr/wrap-mutate
    (fn [mutate]
-     (fn [env {:keys [key params] :as ast}]
-       (let [{::keys [params-spec]} (pci/mutation-config env key)]
+     (fn [env {:keys [key] :as ast}]
+       (let [{::keys [params-spec]} (pci/mutation-config env key)
+
+             ;; Strips extra keys from params so we don't
+             ;; validate keys that will end up getting stripped.
+             params (cond->> (:params ast)
+                      (some? params-spec)
+                      (st/select-spec params-spec))]
+
          (when (and (some? params-spec) (not (s/valid? params-spec params)))
            (throw (ex-info "Invalid params"
                            {:message (s/explain-str params-spec params)
                             :params params})))
 
-         (mutate env (cond-> ast
-                       (some? params-spec)
-                       (update :params #(st/select-spec params-spec %)))))))})
+         (mutate env (assoc ast :params params)))))})
