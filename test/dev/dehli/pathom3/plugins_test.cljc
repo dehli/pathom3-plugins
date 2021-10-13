@@ -1,10 +1,10 @@
-(ns dehli.pathom3.plugins-test
+(ns dev.dehli.pathom3.plugins-test
   (:require [clojure.test :as t]
             [com.wsscode.pathom3.connect.indexes :as pci]
             [com.wsscode.pathom3.connect.operation :as pco]
             [com.wsscode.pathom3.interface.eql :as p.eql]
             [com.wsscode.pathom3.plugin :as p.plugin]
-            [dehli.pathom3.plugins :as plugins]
+            [dev.dehli.pathom3.plugins :as plugins]
             [spec-tools.data-spec :as ds]))
 
 (pco/defmutation my-mutate
