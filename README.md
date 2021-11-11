@@ -24,7 +24,7 @@ on params so that extra data isn't sent to the mutation.
 
 [pathom3]: https://pathom3.wsscode.com
 [select-spec]: https://cljdoc.org/d/metosin/spec-tools/0.10.5/api/spec-tools.core#select-spec
-[source]: https://github.com/dehli/pathom3-plugins/blob/main/src/main/dehli/pathom3/plugins.cljc
+[source]: https://github.com/dehli/pathom3-plugins/blob/main/src/main/dev/dehli/pathom3/plugins.cljc
 
 # Development
 
