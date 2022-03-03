@@ -1,5 +1,5 @@
 {:paths ["src/main"]
- :deps {com.wsscode/pathom3 {:mvn/version "2022.02.01-1-alpha"}
+ :deps {com.wsscode/pathom3 {:mvn/version "2022.02.25-alpha"}
         metosin/spec-tools {:mvn/version "0.10.5"}
         org.clojure/clojure {:mvn/version "1.10.3"}
         org.clojure/clojurescript {:mvn/version "1.11.4"}}
