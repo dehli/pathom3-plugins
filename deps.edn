@@ -1,5 +1,5 @@
 {:paths ["src/main"]
- :deps {com.wsscode/pathom3 {:mvn/version "2022.03.17-alpha"}
+ :deps {com.wsscode/pathom3 {:mvn/version "2022.04.20-alpha"}
         metosin/spec-tools {:mvn/version "0.10.5"}
         org.clojure/clojure {:mvn/version "1.11.1"}
         org.clojure/clojurescript {:mvn/version "1.11.4"}}
@@ -15,5 +15,5 @@
    :exec-fn cognitect.test-runner.api/test}
 
   :outdated
-  {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+  {:extra-deps {com.github.liquidz/antq {:mvn/version "1.6.1"}}
    :main-opts ["-m" "antq.core"]}}}

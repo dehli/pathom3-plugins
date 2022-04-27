@@ -32,3 +32,13 @@ on params so that extra data isn't sent to the mutation.
 clj -M:outdated # View outdated dependencies
 clj -M:test     # Run tests
 ```
+
+# Linting
+
+```bash
+# Pull latest kondo configs
+clj-kondo --lint "$(clojure -Spath)" --copy-configs --dependencies
+
+# Lint project
+clj-kondo --lint ./src
+```
