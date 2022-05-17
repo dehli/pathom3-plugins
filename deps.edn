@@ -1,19 +1,21 @@
 {:paths ["src/main"]
- :deps {com.wsscode/pathom3 {:mvn/version "2022.04.20-alpha"}
-        metosin/spec-tools {:mvn/version "0.10.5"}
-        org.clojure/clojure {:mvn/version "1.11.1"}
-        org.clojure/clojurescript {:mvn/version "1.11.4"}}
+ :deps {metosin/spec-tools {:mvn/version "0.10.5"}}
 
  :aliases
- {:test
+ {:outdated
+  {:extra-deps {com.github.liquidz/antq {:mvn/version "1.6.2"}}
+   :main-opts ["-m" "antq.core"]}
+
+  :provided
+  {:extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
+                org.clojure/clojurescript {:mvn/version "1.11.54"}
+                com.wsscode/pathom3 {:mvn/version "2022.04.20-alpha"}}}
+
+  :test
   {:extra-paths ["test"]
    :extra-deps {io.github.cognitect-labs/test-runner
                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                 :sha "cc75980b43011773162b485f46f939dc5fba91e4"}}
+                 :sha "a85b3b02765fb68684ab9ee4a8598eacf7e471d2"}}
    :main-opts ["-m" "cognitect.test-runner"]
    :jvm-opts ["-Dguardrails.enabled=production"]
-   :exec-fn cognitect.test-runner.api/test}
-
-  :outdated
-  {:extra-deps {com.github.liquidz/antq {:mvn/version "1.6.1"}}
-   :main-opts ["-m" "antq.core"]}}}
+   :exec-fn cognitect.test-runner.api/test}}}

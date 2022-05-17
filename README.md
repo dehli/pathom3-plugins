@@ -29,8 +29,8 @@ on params so that extra data isn't sent to the mutation.
 # Development
 
 ```bash
-clj -M:outdated # View outdated dependencies
-clj -M:test     # Run tests
+clj -M:outdated       # View outdated dependencies
+clj -M:provided:test  # Run tests
 ```
 
 # Linting
